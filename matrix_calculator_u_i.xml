@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.matrixcalculator.view.MatrixCalculatorController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    
+    <Label styleClass="title" text="Matrix Calculator" />
+    
+    <HBox spacing="20">
+        <!-- Matrix A Section -->
+        <VBox spacing="10" styleClass="matrix-container">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label fx:id="matrixALabel" text="Matrix A" styleClass="matrix-label" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Rows:" />
+                <Spinner fx:id="rowsSpinnerA" prefWidth="70" />
+                <Label text="Columns:" />
+                <Spinner fx:id="colsSpinnerA" prefWidth="70" />
+                <Button fx:id="createMatrixAButton" text="Create Matrix" onAction="#createMatrixA" />
+            </HBox>
+            
+            <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="250">
+                <GridPane fx:id="matrixAGrid" hgap="5" vgap="5" alignment="CENTER" />
+            </ScrollPane>
+        </VBox>
+        
+        <!-- Matrix B Section -->
+        <VBox spacing="10" styleClass="matrix-container">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label fx:id="matrixBLabel" text="Matrix B" styleClass="matrix-label" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Rows:" />
+                <Spinner fx:id="rowsSpinnerB" prefWidth="70" />
+                <Label text="Columns:" />
+                <Spinner fx:id="colsSpinnerB" prefWidth="70" />
+                <Button fx:id="createMatrixBButton" text="Create Matrix" onAction="#createMatrixB" />
+            </HBox>
+            
+            <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="250">
+                <GridPane fx:id="matrixBGrid" hgap="5" vgap="5" alignment="CENTER" />
+            </ScrollPane>
+        </VBox>
+    </HBox>
+    
+    <!-- Operations Section -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Operation:" />
+        <ComboBox fx:id="operationComboBox" prefWidth="250" />
+        <Button text="Calculate" onAction="#calculateResult" styleClass="calculate-button" />
+        <Button text="Save Result" onAction="#saveMatrix" />
+        <Button text="Load Matrix" onAction="#loadMatrix" />
+        <Button text="Clear All" onAction="#clearMatrices" />
+    </HBox>
+    
+    <!-- Result Section -->
+    <VBox spacing="10" styleClass="result-container">
+        <Label fx:id="resultLabel" text="Result" styleClass="result-label" />
+        <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="250">
+            <GridPane fx:id="resultMatrixGrid" hgap="5" vgap="5" alignment="CENTER" />
+        </ScrollPane>
+    </VBox>
+    
+    <!-- Status Bar -->
+    <Label fx:id="statusLabel" text="Ready" styleClass="status-label" />
+</VBox>
